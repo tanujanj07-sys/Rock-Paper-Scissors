@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: clamp(2em, 5vw, 3.5em);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Layout Sections */
+#mode-selection, #player-setup {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Buttons */
+.btn {
+    font-size: clamp(16px, 3vw, 20px);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    font-weight: bold;
+    min-width: 220px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.mode-btn {
+    background: linear-gradient(45deg, #008CBA, #00a8e8);
+    color: white;
+}
+
+.choice-btn {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    font-size: 24px;
+    padding: 20px 35px;
+    margin: 10px;
+    min-width: 240px;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #ff6347, #f44336);
+    color: white;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #faa022, #ff9800);
+    color: white;
+}
+
+/* Inputs */
+input {
+    padding: 18px;
+    font-size: 18px;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    width: clamp(250px, 45vw, 350px);
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.9);
+}
+
+input:focus {
+    outline: none;
+    border-color: #008CBA;
+    box-shadow: 0 0 20px rgba(0,140,186,0.4);
+    transform: scale(1.02);
+}
+
+/* Game Area */
+.players {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.player-section {
+    text-align: center;
+}
+
+.player-name {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.choice {
+    font-size: clamp(4em, 12vw, 6em);
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    transition: all 0.6s ease;
+    border: 4px solid rgba(255,255,255,0.3);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choice.animate {
+    transform: rotate(360deg) scale(1.15);
+    box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    border-color: #FFD700;
+}
+
+.score {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Scoreboard */
+.scoreboard {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 500px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.scoreboard p {
+    font-size: clamp(20px, 4vw, 26px);
+    margin: 15px 0;
+    padding: 20px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+/* Result & Timers */
+#result {
+    font-size: clamp(26px, 6vw, 36px);
+    font-weight: bold;
+    margin: 35px 0;
+    padding: 25px;
+    min-height: 60px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.turn {
+    font-size: clamp(20px, 4vw, 24px);
+    font-weight: bold;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+.timer {
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: bold;
+    color: #ff4444;
+    text-shadow: 0 0 12px rgba(255,68,68,0.8);
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.winner {
+    font-size: clamp(28px, 7vw, 40px);
+    color: #FFD700;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 25px;
+    margin: 40px 0;
+    animation: celebrate 1.5s ease-in-out;
+    border: 3px solid #FFD700;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    75% { transform: scale(1.05); }
+}
+
+.game-controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.timers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .players { gap: 30px; }
+    .choice { font-size: 4em; }
+    .game-controls { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 15px; }
+    .choice-btn { padding: 18px 25px; font-size: 20px; }
+    .scoreboard { margin: 20px; padding: 20px; }
+}

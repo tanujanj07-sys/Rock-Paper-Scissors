@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors - Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🪨📜✂️ Rock Paper Scissors</h1>
+
+        <!-- Mode Selection -->
+        <div id="mode-selection">
+            <h2>Select Game Mode</h2>
+            <button class="btn mode-btn" onclick="setMode('player')">👥 Player vs Player</button>
+            <button class="btn mode-btn" onclick="setMode('computer')">🤖 Player vs Computer</button>
+        </div>
+
+        <!-- Player Setup -->
+        <div id="player-setup" style="display: none;">
+            <h2>Enter Player Names</h2>
+            <input type="text" id="player1" placeholder="Player 1 Name" maxlength="15">
+            <input type="text" id="player2" placeholder="Player 2 Name" maxlength="15">
+            <button class="btn mode-btn" onclick="startGame()">🚀 Start Game</button>
+            <button class="btn back-btn" onclick="backToModeSelection()">↩️ Back</button>
+        </div>
+
+        <!-- Main Game -->
+        <div id="game" style="display: none;">
+            <h2 class="turn">Current Turn: <span id="currentPlayer">Player 1</span></h2>
+
+            <div class="players">
+                <div class="player-section">
+                    <div id="player1Name" class="player-name"></div>
+                    <div id="player1-choice" class="choice">❓</div>
+                    <div id="player1Score" class="score">0</div>
+                </div>
+                <div class="player-section">
+                    <div id="player2Name" class="player-name"></div>
+                    <div id="player2-choice" class="choice">❓</div>
+                    <div id="player2Score" class="score">0</div>
+                </div>
+            </div>
+
+            <div class="choices">
+                <button class="btn choice-btn" onclick="playerMove('rock')">🪨 Rock</button>
+                <button class="btn choice-btn" onclick="playerMove('paper')">📜 Paper</button>
+                <button class="btn choice-btn" onclick="playerMove('scissors')">✂️ Scissors</button>
+            </div>
+
+            <h2 id="result">Make your move! 🎮</h2>
+
+            <div class="scoreboard" id="player2ScoreContainer" style="display: none;">
+                <p><span id="player1NameScore"></span>: <span id="player1ScoreBoard">0</span></p>
+                <p><span id="player2NameScore"></span>: <span id="player2ScoreBoard">0</span></p>
+            </div>
+
+            <div class="game-controls">
+                <button class="btn reset-btn" onclick="resetGame()">🔄 Reset Game</button>
+                <button class="btn back-btn" onclick="backToModeSelection()">↩️ Main Menu</button>
+            </div>
+
+            <div id="winnerMessage" class="winner" style="display: none;"></div>
+
+            <div class="timers">
+                <p class="timer">⏱️ Turn: <span id="turnTimer">5</span>s</p>
+                <p class="timer">⏳ Game: <span id="gameTimer">2:00</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Files (Optional - create these MP3 files or remove audio calls) -->
+    <!-- <audio id="winSound" src="win.mp3" preload="auto"></audio> -->
+    <!-- <audio id="clickSound" src="click.mp3" preload="auto"></audio> -->
+
+    <script src="script.js"></script>
+</body>
+</html>
